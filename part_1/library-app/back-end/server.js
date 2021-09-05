@@ -34,10 +34,18 @@ expressRouter.post('/books', (req, res) => {
 expressRouter.get('/books', (req, res) => {
   db.find({}).then((response) => {
     req.json(response.data)
-  }).catch((err)=>{throw err})
+  }).catch((err) => { throw err })
 
 })
 
+
+expressRouter.get('/books/:book_id', (req, res) => {
+
+  db.find({ _id: req.params.book_id }).then((response) => {
+    req.json(response.data)
+  }).catch((err) => { throw err })
+
+})
 
 
 
