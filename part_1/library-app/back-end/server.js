@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-require("./db")
+const db = require("./db")
 const app = express();
 const expressRouter = new express.Router()
 
@@ -15,6 +15,7 @@ app.use('/', expressRouter)
 
 const BookModle = require('./db');
 const { response } = require("express");
+const { Db } = require("mongodb");
 
 expressRouter.post('/books', (req, res) => {
   const { title, author, pages, publisher, published_at } = req.body;
@@ -28,6 +29,16 @@ expressRouter.post('/books', (req, res) => {
 
 
 })
+
+
+expressRouter.get('/books', (req, res) => {
+  db.find({}).then((response) => {
+    req.json(response.data)
+  }).catch((err)=>{throw err})
+
+})
+
+
 
 
 app.listen(port, () => {
