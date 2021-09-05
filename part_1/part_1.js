@@ -14,6 +14,11 @@ Q4) Create an API `/books/:book_id` to get a specific book from the database.
 
 Q5) Create an API `/books/:book_id` to delete a specific book from the database
 
+
+
+
+
+
 Q6) Add a frontend route `/library/create_book` to render the inputs that correspond to the book's attributes and a `submit` button (without functionality).
 
 Q7) Add a frontend route `/library` that will render all the books (title and author) from the database.
