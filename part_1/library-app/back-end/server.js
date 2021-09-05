@@ -46,7 +46,15 @@ expressRouter.get('/books/:book_id', (req, res) => {
   }).catch((err) => { throw err })
 
 })
+expressRouter.delete('/books/:book_id', (req, res) => {
 
+  db.deleteOne({ _id: req.params.book_id }).then((response) => {
+    if (response.data)
+      req.json('the spisific book deleted successfuly')
+    else req.json('server Error')
+  }).catch((err) => { throw err })
+
+})
 
 
 app.listen(port, () => {
