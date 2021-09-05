@@ -3,8 +3,8 @@ mongoose.connect('mongodb://localhost:27017/ExamDB').then(
     console.log('db ready to use'));
 
 
-const modleTest = new mongoose.Schema({
-    name: String
+const BookModle = new mongoose.Schema({
+    title: String, author: String, pages: Number, publisher: String, published_at: Date
 });
 //       const modle1 = mongoose.model('modle', ModleTest);
 
@@ -17,4 +17,4 @@ const modleTest = new mongoose.Schema({
 
 
 
-//module.exports = mongoose.model(modleTest);
+module.exports = mongoose.model(BookModle);
